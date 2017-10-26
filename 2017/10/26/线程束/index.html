@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="GPU," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="##线程束 　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下">
+<meta name="description" content="线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下一次到底要执">
+<meta name="keywords" content="GPU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zspCoder">
+<meta property="og:title" content="线程束">
 <meta property="og:url" content="http://zspCoder.com/2017/10/26/线程束/index.html">
 <meta property="og:site_name" content="zspCoder">
-<meta property="og:description" content="##线程束 　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下">
+<meta property="og:description" content="线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下一次到底要执">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-04-11T02:51:36.623Z">
+<meta property="og:updated_time" content="2017-10-26T13:54:25.188Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zspCoder">
-<meta name="twitter:description" content="##线程束 　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下">
+<meta name="twitter:title" content="线程束">
+<meta name="twitter:description" content="线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下一次到底要执">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | zspCoder</title>
+  <title>线程束 | zspCoder</title>
   
 
 
@@ -269,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">线程束</h1>
         
 
         <div class="post-meta">
@@ -291,6 +292,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CUDA/" itemprop="url" rel="index">
+                    <span itemprop="name">CUDA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,8 +352,7 @@
       
 
       
-        <p>##线程束</p>
-<p>　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。</p>
+        <p>　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。</p>
 <p>​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下一次到底要执行哪一块代码。在CPU上，指令流通常都会被预提取，然后放入CPU的指令管线中。如果预测准确，那么CPU就避免了一次失速事件。如果预测错误，CPU则需要重新执行预测指令，然后获取另一个分支的指令，再将其添入管线之中。</p>
 <p>​    相比之下，GPU的处理要简单得多。GPU在执行完分支结构的一个分支后就会接着另一个分支。对于不满足分支条件的线程，GPU在执行这块代码的时候就会将它们设置为未激活状态。当这块代码执行完毕之后，GPU继续执行另一个分支。这时，刚刚不满足分支条件的线程如果满足当前的分支条件，那么它们将被激活，然后执行这一段代码。最后所有的线程聚合，继续向下执行。例如代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">__<span class="function">global__ <span class="title">some_func</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">if</span>(some_condition)</div><div class="line">  &#123;</div><div class="line">    action_a();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span></div><div class="line">  &#123;</div><div class="line">    action_b();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -468,6 +490,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/GPU/" rel="tag"># GPU</a>
+          
+        </div>
+      
 
       
       
@@ -584,7 +612,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index-1.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -595,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

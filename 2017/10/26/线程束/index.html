@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="What can I hold you with?">
-<meta property="og:type" content="website">
+<meta name="description" content="##线程束 　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下">
+<meta property="og:type" content="article">
 <meta property="og:title" content="zspCoder">
-<meta property="og:url" content="http://zspCoder.com/index.html">
+<meta property="og:url" content="http://zspCoder.com/2017/10/26/线程束/index.html">
 <meta property="og:site_name" content="zspCoder">
-<meta property="og:description" content="What can I hold you with?">
+<meta property="og:description" content="##线程束 　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-04-11T02:51:36.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zspCoder">
-<meta name="twitter:description" content="What can I hold you with?">
+<meta name="twitter:description" content="##线程束 　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。 ​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://zspCoder.com/"/>
+  <link rel="canonical" href="http://zspCoder.com/2017/10/26/线程束/"/>
 
 
 
 
 
-  <title>zspCoder</title>
+  <title> | zspCoder</title>
   
 
 
@@ -143,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +237,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/26/线程束/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -297,6 +295,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/26/线程束/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/10/26/线程束/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -321,9 +329,7 @@
       
 
       
-        
-          
-            <p>##线程束</p>
+        <p>##线程束</p>
 <p>　　线程束是GPU的基本执行单元，每一组线程或每一个线程束中的线程同时执行，在理想状态下，获取当前指令只需要一次访存。当前，GPU上的一个线程束固定大小为32(不能通过硬编码进行更改)。</p>
 <p>​    一个线程束是一个单独的执行单元，使用分支(例如if、else、for、white、do、switch等)可以产生不同的执行流。在CPU上使用分支比较复杂，因为它需要根据之前的运行情况来预测下一次到底要执行哪一块代码。在CPU上，指令流通常都会被预提取，然后放入CPU的指令管线中。如果预测准确，那么CPU就避免了一次失速事件。如果预测错误，CPU则需要重新执行预测指令，然后获取另一个分支的指令，再将其添入管线之中。</p>
 <p>​    相比之下，GPU的处理要简单得多。GPU在执行完分支结构的一个分支后就会接着另一个分支。对于不满足分支条件的线程，GPU在执行这块代码的时候就会将它们设置为未激活状态。当这块代码执行完毕之后，GPU继续执行另一个分支。这时，刚刚不满足分支条件的线程如果满足当前的分支条件，那么它们将被激活，然后执行这一段代码。最后所有的线程聚合，继续向下执行。例如代码：</p>
@@ -448,8 +454,6 @@
 <p>​    可以看出，每个线程块开启的线程数越多，就潜在地增加了等待同步的时间，因此并不是线程数越多越好。而同时，如果线程数过少，硬件利用率就会降低。<strong>一般保证每个线程块中最少有192个线程。</strong></p>
 <p>​    <strong>在确定线程块的数目时，一般要保证线程块的数目是SM数目的整数倍，以此提高设备的利用率。</strong>这是因为一个SM一次只能执行6~8个线程块，如果出现剩余的线程块数很小，就会造成只有一两个SM在运行，而其余的SM都处于闲置状态，因此就会降低设备的利用率。</p>
 
-          
-        
       
     </div>
     
@@ -466,163 +470,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zspCoder.com/2017/10/26/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zsp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://i4.bvimg.com/615841/a9197ec4732e39f5.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zspCoder">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/26/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T16:00:29+08:00">
-                2017-10-26
-              </time>
+              <a href="/2017/10/26/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>var gitment = new Gitment({<br>    id: ‘location.href’, // 可选。默认为 location.href<br>    owner: ‘zspCoder’,<br>    repo: ‘zspCoder.github.io’,<br>    oauth: {<br>      client_id: ‘b6f052d396daecbef854’,<br>      client_secret: ‘90c31535097046268160f0ba4483fb4be7bba418’,<br>    },<br>  })<br>  gitment.render(‘container’)</p>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -632,10 +501,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -643,6 +513,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -663,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -730,6 +620,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU的利用率"><span class="nav-number">1.</span> <span class="nav-text">GPU的利用率</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -864,6 +770,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -910,6 +820,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'zspCoder',
+            repo: 'zspCoder.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '90c31535097046268160f0ba4483fb4be7bba418',
+            
+                client_id: 'b6f052d396daecbef854'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
